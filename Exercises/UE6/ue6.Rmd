@@ -1,0 +1,83 @@
+---
+title: "ue6"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Get the packages
+```{r}
+
+```
+
+All packages that we know are made out of functions. If we use `View()` we can find out more about how functions are made:
+
+```{r}
+View(read.table)
+```
+
+
+Let's define a simple function:
+
+```{r}
+
+```
+
+# Funktion zum Einlesen von Whatsapp-Chats bauen:
+```{r}
+
+
+
+
+```
+
+
+# Test it
+```{r}
+
+}
+```
+
+
+
+# Let's clean our dataset from last week
+
+We have the information of the release year in the same column like the movie title
+```{r}
+
+```
+
+We cannot simply separate by spaces as they appear throughout our observation. Therefore we will need to do it another way.
+In the first try we will use a simple separate function:
+```{r}
+
+```
+That didn't really work...
+
+
+Let's define a function where we will look for the first bracket of our year string. We will append it with a substring that clearly marks the separating point of our observation
+```{r}
+
+```
+
+
+Let's test our function:
+```{r}
+
+```
+
+
+```{r}
+
+```
+Mit dieser Funktion fahren wir am sichersten!
+
+
+At last we want to source another R script in our current one:
+```{r}
+
+```
+

@@ -1,0 +1,1 @@
+hi <- "Hi, I came from the tiny script :)"
