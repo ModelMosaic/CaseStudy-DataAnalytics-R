@@ -1,0 +1,92 @@
+---
+title: "ue5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# get the packages
+```{r}
+
+
+
+```
+
+```{r}
+
+```
+
+
+# Load the datasets
+```{r}
+
+
+```
+
+# Tasks for Today
+
+
+## transform
+First we get the average rating for each movie
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+
+
+
+
+## Join
+
+Let's try out some join functions and see how they work on our two datasets
+```{r}
+
+
+```
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+
+
+## Analytics of our data
+
+Which of the movies from High School Musical or Camp Rock has the best ratings?
+
+
+```{r}
+
+
+```
+
+Let's get a selection of the best rated movies. We apply a filter to all movies that hit more than 100 ratings
+```{r}
+
+
+```
+
+
+Finally, we want to explore some bind functions
+```{r}
+
+```
+
+```{r}
+
+```
+
+
