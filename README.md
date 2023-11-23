@@ -1,4 +1,4 @@
-# Introduction to Data Analytics with R
+# Foundations of Data Analytics with R
 
 Welcome to this repository, which is dedicated to introducing and exploring the world of data analytics using the R programming language. This repository is designed as a comprehensive guide to harness the power of R for big data analytics, which is becoming increasingly crucial in various scientific and engineering domains.
 
