@@ -1,0 +1,86 @@
+---
+title: "ue3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Include Packages
+```{r}
+
+```
+
+# Import the Black Friday dataset
+```{r}
+
+```
+
+
+# Let's get an overview first!
+```{r}
+
+```
+
+
+Piping operator shortcut
+%>% -> "ctrl + shift + m"
+
+Drop duplicate rows from data as they impact the analysis!
+```{r}
+
+```
+
+# Tasks for today
+
+
+Create a new dataframe that contains all customers from the age group "18-25".
+We only want to observe the gender,
+                          occupation, 
+                          and the number of purchases made at each product category. 
+Sort the dataframe in descending order by "Occupation".
+
+
+```{r}
+
+
+  
+```
+
+  
+Now we want to find the strongest consumer. We create a new column "product_sum" that contains the sum of all values from the product categories.
+
+```{r}
+
+```
+
+We do the same for the age group "46-50"
+
+```{r}
+
+```
+
+
+
+
+
+Create a summary of all age groups that shows their average purchase power of product category 2.
+```{r}
+
+```
+
+
+
+Now a different use case: We want to find the average lifetime each age group has spent in the observed city.
+```{r}
+
+
+```
+
+
+```{r}
+
+```
+
+
