@@ -1,0 +1,141 @@
+---
+title: "ue3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- Include the `tidyverse` package. Alternatively, you could include the `tidyr` and `readr` packages.
+
+```{r}
+if(!require(install.load)){
+  install.packages("install.load")
+}
+library(install.load)
+install_load("tidyverse")
+```
+
+
+## Guidelines / Principles of Tidy Data
+
+There are three major properties of a tidy dataset:
+
+1. One single variable per column
+2. One single observation per row
+3. One single value per cell / observational unit (unique combination of row and column index)
+
+## tidyr
+
+
+The `tidyr` package contains functions that help to tidy "messy" datasets.
+Furthermore, the package contains five example Tibbles (labelled as `table1` to `table5`) about the number of tuberculosis cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000. The data contains values associated with four variables (country, year, cases, and population), but each table organizes the values in a different layout.
+Let's take a look at those example Datasets.
+
+
+```{r}
+head(table2)
+head(table1)
+```
+
+What do you notice?
+
+One observation is spread across two rows, which violates the 2nd principle of our guideline for tidy data. 
+
+Using the `spread()` function we can spread key-value pairs to multiple columns. In this case the keys are `cases` and `population` with their corresponding values given in the `count` column.
+
+
+
+```{r}
+table2_1 <-spread(table2, type, count)
+all.equal(table1, table2_1)
+
+```
+
+pivot_wider() "widens" data, increasing the number of columns and decreasing the number of rows. 
+The inverse transformation is pivot_longer().
+
+```{r}
+table2_1_1 <- pivot_wider(table2, names_from = "type", values_from = "count")
+head(table2_1_1)
+all.equal(table2_1, table2_1_1)
+
+
+```
+
+
+using `gather()` we can do the opposite of `spread()`, which is to take multiple columns and collapse those into key-value pairs:
+
+
+```{r}
+
+
+
+```
+
+```{r}
+
+
+```
+
+
+Now let's take a look on a chat file:
+```{r}
+
+
+
+```
+
+With `unite()` we reverse the previous command and "unite" several columns:
+
+```{r}
+
+
+
+```
+
+Now we have a whole bunch of redundant variables defined :D
+How can we avoid this? -> Use the piping operator "%>%" 
+```{r}
+
+
+
+```
+
+
+
+###########################
+
+Change variable types
+
+
+```{r}
+
+
+```
+
+
+
+
+####################
+
+Dealing with NA values
+
+
+```{r}
+
+
+```
+
+Some values in the `Scores` column are empty. These rows become invalid for us. Here are two methods on how we can erase rows containing NA values:
+```{r}
+
+
+```
+
+```{r}
+
+
+```   
+

@@ -1,0 +1,50 @@
+Introducing the `install.load package`
+
+```{r}
+
+
+```
+
+
+Connect with the database
+```{r}
+
+
+
+```
+
+
+List all tables within database
+```{r}
+
+
+```
+
+
+The `Select` statement
+```{r}
+
+
+
+```
+
+
+Create a dataframe in R with queries
+```{r}
+
+
+
+```
+
+
+Using Join 
+
+```{r}
+
+
+
+
+```
+
+
+

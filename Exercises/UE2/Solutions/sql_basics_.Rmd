@@ -1,0 +1,85 @@
+---
+title: "sql_basics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+``` 
+
+
+
+Introducing the `install.load package`
+```{r}
+if(!require(install.load)){
+  install.packages("install.load")
+}
+library(install.load)
+install_load("DBI", "RMySQL")
+```
+
+
+```{r}
+```
+
+
+
+Connect with the database
+```{r}
+con <- dbConnect(MySQL(), 
+                  dbname = "tweater", 
+                  host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                  port = 3306,
+                  user= "student",
+                  password = "datacamp")
+
+```
+
+
+List all tables within database
+```{r}
+dbListTables(con)
+
+```
+
+
+The `Select` statement
+1. Get the user table
+2. Get only the posts which are made after 2015-09-27
+```{r}
+dbGetQuery(con, "SELECT * FROM users ")
+
+
+dbGetQuery(con, "SELECT post FROM tweats WHERE date > 2015-09-27")
+```
+
+
+Create a dataframe in R with queries
+
+
+```{r}
+comments_df <- dbGetQuery(con, "SELECT message FROM comments WHERE user_id = 7")
+
+
+```
+
+
+Take a look at our variable
+```{r}
+
+comments_df
+```
+
+
+Using Join 
+
+```{r}
+
+dbGetQuery(con, 
+           "SELECT * FROM users join comments on users.id =
+           comments.user_id")
+
+```
+
+
+
