@@ -8,11 +8,11 @@ In this repository, you will find a series of exercises and case studies aimed a
 
 ### Contents
 
-- **Exercises in Introduction to R Programming**
+- **Exercises o R Programming**
   - Start from the basics: understand R syntax, data structures, and basic programming concepts.
   - Gradually move to more complex topics: data manipulation, functions, and statistical analysis.
 
-- **Case Studies in R Programming**
+- **Case Studie: R Programming**
   - Apply your R programming skills to solve real-world case studies.
   - Analyze datasets to extract meaningful insights and make data-driven decisions.
 
