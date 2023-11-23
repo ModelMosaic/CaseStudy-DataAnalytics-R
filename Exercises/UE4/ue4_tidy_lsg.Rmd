@@ -1,0 +1,137 @@
+---
+title: "ue4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Transform 2
+
+Get the packages
+```{r}
+
+library(tidyverse)
+```
+
+Import data
+```{r}
+data <- read_csv("BlackFriday.csv")
+```
+
+
+```{r}
+data[is.na(data)]<- 0
+data <- data %>% unique()
+```
+
+
+
+We transform all columns with `mutate_all()`. The same operation will be executed on all data.
+```{r}
+products_transformed <- data %>% 
+  select(9:11) %>% 
+  mutate_all(sqrt) %>% 
+  mutate_all(log1p)
+
+products_transformed <- data %>% 
+  select(9:11) %>% 
+  mutate_all(funs(sqrt,log1p))
+             
+
+```
+
+We can also select a few columns instead:
+```{r}
+product_spot_transformed <- data %>% 
+  mutate_at(vars(9:10), '/', 100)
+
+head(product_spot_transformed)
+
+```
+
+
+
+Or we make a conditional mutation:
+```{r}
+products_if_transformed <- data %>% 
+  mutate_if(is.numeric, "/", 100)
+
+head(products_if_transformed)
+
+```
+
+
+
+The same logic goes with `summarise_at` and `summarise_if`:
+```{r}
+product_summarized <- data %>% 
+  group_by(Age) %>% 
+  summarise_at(c("Product_Category_1","Product_Category_2","Product_Category_3"), mean, na.rm = TRUE)
+```
+
+
+```{r}
+data %>% group_by(Age) %>% 
+  summarise_if(is.numeric, mean) %>% 
+  arrange(desc(Age))
+```
+
+Finally, we want to ungroup our data again:
+```{r}
+
+ungroup(data)
+```
+
+# Regular Expression
+
+If we want to replace a character in a string, we simply use the `sub()` function. However, this command doesn't work for arithmetic operations. In regular expressions, arithmetic operators stand for other commands. Here an example of a problem we could deal with:
+
+```{r}
+
+string <- "I need a t-shirt with size XXL"
+string <- sub("XXL", "L", string)
+
+
+regex_string <- "27 + 5 = 22"
+regex_string <- sub("\\+", "-", regex_string)
+```
+
+
+
+
+
+Now let's move on with some higher-level RegEx. We therefore need the package `stringr`:
+```{r}
+library(stringr)
+
+```
+
+
+At last, we want to create a dataframe from a single string. This is an academic example and is for better understanding of dataframes and lists in R:
+```{r}
+
+your_text <-"omg~dis~txt!hav~no~delims!or~ln~brks"
+write(your_text, "text_file.txt");
+rm(your_text)
+
+eol_str = "!"
+sep_str = "~"
+
+row_list <- scan("text_file.txt", what=character(), sep=eol_str) %>% 
+  strsplit(split=sep_str)
+
+View(row_list)
+
+df <- data.frame(row_list)
+df <- data.frame(t(df), row.names = NULL)
+head(df)
+
+```
+
+
+
+
+
+

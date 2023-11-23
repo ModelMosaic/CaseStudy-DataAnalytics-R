@@ -1,0 +1,101 @@
+---
+title: "ue4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Transform 2
+
+Get the packages
+```{r}
+
+
+```
+
+Import data
+```{r}
+
+```
+
+
+```{r}
+
+
+```
+
+
+
+We transform all columns with `mutate_all()`. The same operation will be executed on all data.
+```{r}
+
+
+
+
+```
+
+We can also select a few columns instead:
+```{r}
+
+
+```
+
+
+
+Or we make a conditional mutation:
+```{r}
+
+
+```
+
+
+
+The same logic goes with `summarise_at` and `summarise_if`:
+```{r}
+
+
+```
+
+
+```{r}
+
+```
+
+Finally, we want to ungroup our data again:
+```{r}
+```
+
+# Regular Expression
+
+If we want to replace a character in a string, we simply use the `sub()` function. However, this command doesn't work for arithmetic operations. In regular expressions, arithmetic operators stand for other commands. Here an example of a problem we could deal with:
+
+```{r}
+
+
+```
+
+
+
+
+
+Now let's move on with some higher-level RegEx. We therefore need the package `stringr`:
+```{r}
+
+
+```
+
+
+At last, we want to create a dataframe from a single string. This is an academic example and is for better understanding of dataframes and lists in R:
+```{r}
+
+
+
+```
+
+
+
+
+
+
